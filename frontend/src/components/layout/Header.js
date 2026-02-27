@@ -46,15 +46,17 @@ const Header = ({ toggleSidebar }) => {
             <User className="w-5 h-5 text-white" />
           </div>
           <div className="hidden md:block">
-            <p className="text-sm font-medium text-white">Administrador</p>
-            <p className="text-xs text-gray-400">admin@jbestruturas.com</p>
+            <p className="text-sm font-medium text-white">{user?.nome || 'Usuário'}</p>
+            <p className="text-xs text-gray-400">{user?.email || 'user@email.com'}</p>
           </div>
         </div>
 
         {/* Logout */}
         <button 
+          onClick={handleLogout}
           className="p-2 hover:bg-[#1F2937] rounded-md transition-colors"
           data-testid="logout-btn"
+          title="Sair"
         >
           <LogOut className="w-5 h-5 text-gray-400" />
         </button>
