@@ -137,10 +137,20 @@ const Clientes = () => {
           <h1 className="text-3xl font-bold text-white" data-testid="clientes-title">Clientes</h1>
           <p className="text-gray-400 mt-1">Gerenciamento de clientes</p>
         </div>
-        <Button onClick={() => handleOpenModal()} data-testid="add-cliente-btn">
-          <Plus className="w-4 h-4 mr-2" />
-          Novo Cliente
-        </Button>
+        <div className="flex space-x-3">
+          <Button 
+            variant="outline" 
+            onClick={() => relatoriosService.downloadPDF('clientes')}
+            data-testid="relatorio-pdf-btn"
+          >
+            <FileText className="w-4 h-4 mr-2" />
+            Gerar PDF
+          </Button>
+          <Button onClick={() => handleOpenModal()} data-testid="add-cliente-btn">
+            <Plus className="w-4 h-4 mr-2" />
+            Novo Cliente
+          </Button>
+        </div>
       </div>
 
       {/* Search */}
