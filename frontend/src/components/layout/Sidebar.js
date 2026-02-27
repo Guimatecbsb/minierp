@@ -4,7 +4,7 @@ import {
   Wrench, ClipboardList, Calendar, FileText,
   Users, Building, Database, ChevronDown, ChevronRight,
   Thermometer, Zap, CheckSquare, HardHat, Box,
-  Tool, AlertCircle, Archive, UserCog, Shield,
+  AlertCircle, Archive, Shield,
   Download, Server, Activity
 } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
