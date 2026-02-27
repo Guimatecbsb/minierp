@@ -55,6 +55,8 @@ api_router.include_router(get_clientes_router(db))
 api_router.include_router(get_compras_router(db))
 api_router.include_router(get_equipamentos_router(db))
 api_router.include_router(get_veiculos_router(db))
+api_router.include_router(get_eventos_router(db))
+api_router.include_router(get_dashboard_router(db))
 
 # Include the main API router in the app
 app.include_router(api_router)
