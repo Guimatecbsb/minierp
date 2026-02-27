@@ -96,7 +96,10 @@ function App() {
             <Route path="/config/usuarios-online" element={<PlaceholderPage title="Usuários Online" description="Visualização de usuários conectados" />} />
           </Routes>
         </MainLayout>
-      </BrowserRouter>
+      } />
+    </Routes>
+  </BrowserRouter>
+</AuthProvider>
     </div>
   );
 }
