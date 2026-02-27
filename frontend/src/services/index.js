@@ -167,3 +167,54 @@ export const dashboardService = {
     return response.data;
   },
 };
+
+export const relatoriosService = {
+  downloadPDF: async (tipo) => {
+    const response = await api.get(`/relatorios/${tipo}/pdf`, {
+      responseType: 'blob',
+    });
+    
+    // Criar download automático
+    const url = window.URL.createObjectURL(new Blob([response.data]));
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', `relatorio_${tipo}_${new Date().getTime()}.pdf`);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  },
+};
+
+export const backupService = {
+  getStats: async () => {
+    const response = await api.get('/backup/stats');
+    return response.data;
+  },
+
+  exportBackup: async () => {
+    const response = await api.get('/backup/export', {
+      responseType: 'blob',
+    });
+    
+    const url = window.URL.createObjectURL(new Blob([response.data]));
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', `backup_${new Date().getTime()}.json`);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  },
+
+  restoreBackup: async (file) => {
+    const formData = new FormData();
+    formData.append('file', file);
+    
+    const response = await api.post('/backup/restore', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    
+    return response.data;
+  },
+};
