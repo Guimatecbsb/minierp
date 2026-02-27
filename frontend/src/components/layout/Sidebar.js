@@ -75,7 +75,7 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
         { path: '/estoque/consumiveis', label: 'Consumíveis', icon: Archive },
         { path: '/estoque/catalogo', label: 'Catálogo Geral', icon: FileText },
         { path: '/estoque/inventario', label: 'Inventário Geral', icon: ClipboardList },
-        { path: '/estoque/ferramentas', label: 'Ferramentas', icon: Tool },
+        { path: '/estoque/ferramentas', label: 'Ferramentas', icon: Wrench },
         { path: '/estoque/epi', label: 'EPI', icon: HardHat }
       ]
     },
