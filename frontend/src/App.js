@@ -75,17 +75,17 @@ function App() {
             
             {/* Estoque */}
             <Route path="/estoque/cadastro-equipamentos" element={<Equipamentos />} />
-            <Route path="/estoque/tomados-emprestado" element={<PlaceholderPage title="Tomados Emprestado" description="Controle de itens tomados emprestado" />} />
-            <Route path="/estoque/emprestados-terceiro" element={<PlaceholderPage title="Emprestados a Terceiro" description="Controle de itens emprestados" />} />
+            <Route path="/estoque/tomados-emprestado" element={<Emprestimos />} />
+            <Route path="/estoque/emprestados-terceiro" element={<Emprestimos />} />
             <Route path="/estoque/consumiveis" element={<PlaceholderPage title="Consumíveis" description="Gestão de materiais consumíveis" />} />
             <Route path="/estoque/catalogo" element={<PlaceholderPage title="Catálogo Geral" description="Catálogo completo de equipamentos" />} />
             <Route path="/estoque/inventario" element={<PlaceholderPage title="Inventário Geral" description="Inventário completo do estoque" />} />
             <Route path="/estoque/ferramentas" element={<PlaceholderPage title="Ferramentas" description="Controle de ferramentas" />} />
-            <Route path="/estoque/epi" element={<PlaceholderPage title="EPI" description="Equipamentos de Proteção Individual" />} />
+            <Route path="/estoque/epi" element={<EPIs />} />
             
             {/* Compras */}
-            <Route path="/compras/ordens" element={<PlaceholderPage title="Ordens de Compra" description="Gestão de ordens de compra com numeração automática" />} />
-            <Route path="/compras/orcamentos" element={<PlaceholderPage title="Orçamentos" description="Orçamentos: Pendente/Aprovado/Negado" />} />
+            <Route path="/compras/ordens" element={<OrdensDeCompra />} />
+            <Route path="/compras/orcamentos" element={<Orcamentos />} />
             <Route path="/compras/historico" element={<PlaceholderPage title="Histórico" description="Histórico de compras com relatório PDF" />} />
             <Route path="/compras/fornecedores" element={<Fornecedores />} />
             <Route path="/compras/servicos-terceirizados" element={<PlaceholderPage title="Serviços Terceirizados" description="Controle de serviços terceirizados" />} />
