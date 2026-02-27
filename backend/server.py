@@ -54,6 +54,7 @@ async def health_check():
     return {"status": "ok", "database": "connected"}
 
 # Include module routers
+api_router.include_router(get_auth_router(db))
 api_router.include_router(get_clientes_router(db))
 api_router.include_router(get_compras_router(db))
 api_router.include_router(get_equipamentos_router(db))
