@@ -44,12 +44,12 @@ function App() {
             <Route path="/operacional/relatorios" element={<PlaceholderPage title="Relatórios Operacionais" description="Relatórios do setor operacional" />} />
             
             {/* Logística */}
-            <Route path="/logistica/veiculos-pesados" element={<PlaceholderPage title="Veículos Pesados" description="Gestão de veículos pesados" />} />
-            <Route path="/logistica/veiculos-leves" element={<PlaceholderPage title="Veículos Leves" description="Gestão de veículos leves" />} />
+            <Route path="/logistica/veiculos-pesados" element={<Veiculos />} />
+            <Route path="/logistica/veiculos-leves" element={<Veiculos />} />
             <Route path="/logistica/manutencao-preventiva" element={<PlaceholderPage title="Manutenção Preventiva" description="Programação de manutenções preventivas" />} />
             <Route path="/logistica/manutencao-corretiva" element={<PlaceholderPage title="Manutenção Corretiva" description="Registro de manutenções corretivas" />} />
-            <Route path="/logistica/abastecimento" element={<PlaceholderPage title="Abastecimento" description="Controle de abastecimento com numeração automática" />} />
-            <Route path="/logistica/condutores" element={<PlaceholderPage title="Cadastro de Condutores" description="Cadastro e gestão de condutores" />} />
+            <Route path="/logistica/abastecimento" element={<Abastecimento />} />
+            <Route path="/logistica/condutores" element={<Condutores />} />
             <Route path="/logistica/relatorios" element={<PlaceholderPage title="Relatórios Logística" description="Relatórios em PDF da logística" />} />
             
             {/* Serralheria */}
