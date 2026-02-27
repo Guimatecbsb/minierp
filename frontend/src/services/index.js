@@ -127,3 +127,43 @@ export const veiculosService = {
     return response.data;
   },
 };
+
+export const eventosService = {
+  getAll: async (status = null, data_inicio = null, data_fim = null) => {
+    let url = '/eventos';
+    const params = [];
+    if (status) params.push(`status=${status}`);
+    if (data_inicio) params.push(`data_inicio=${data_inicio}`);
+    if (data_fim) params.push(`data_fim=${data_fim}`);
+    if (params.length > 0) url += `?${params.join('&')}`;
+    
+    const response = await api.get(url);
+    return response.data;
+  },
+
+  getById: async (id) => {
+    const response = await api.get(`/eventos/${id}`);
+    return response.data;
+  },
+
+  create: async (data) => {
+    const response = await api.post('/eventos', data);
+    return response.data;
+  },
+
+  update: async (id, data) => {
+    const response = await api.put(`/eventos/${id}`, data);
+    return response.data;
+  },
+
+  delete: async (id) => {
+    await api.delete(`/eventos/${id}`);
+  },
+};
+
+export const dashboardService = {
+  getStats: async () => {
+    const response = await api.get('/dashboard/stats');
+    return response.data;
+  },
+};
