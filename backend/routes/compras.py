@@ -81,4 +81,72 @@ def get_compras_router(db: AsyncIOMotorDatabase) -> APIRouter:
         
         return None
     
+    # ==================== ORDENS DE COMPRA ====================
+    @router.post("/ordens", response_model=OrdemCompra, status_code=201)
+    async def criar_ordem_compra(ordem: OrdemCompraCreate):
+        ordem_obj = OrdemCompra(**ordem.model_dump())
+        
+        # Gerar número automático
+        count = await db.ordens_compra.count_documents({})
+        ordem_obj.numero_ordem = f"ORD-{str(count + 1).zfill(6)}"
+        
+        doc = ordem_obj.model_dump()
+        doc['created_at'] = doc['created_at'].isoformat()
+        doc['updated_at'] = doc['updated_at'].isoformat()
+        if 'data_ordem' in doc and hasattr(doc['data_ordem'], 'isoformat'):
+            doc['data_ordem'] = doc['data_ordem'].isoformat()
+        
+        await db.ordens_compra.insert_one(doc)
+        return ordem_obj
+    
+    @router.get("/ordens", response_model=List[OrdemCompra])
+    async def listar_ordens():
+        ordens = await db.ordens_compra.find({}, {"_id": 0}).to_list(1000)
+        
+        for o in ordens:
+            if isinstance(o.get('created_at'), str):
+                o['created_at'] = datetime.fromisoformat(o['created_at'])
+            if isinstance(o.get('updated_at'), str):
+                o['updated_at'] = datetime.fromisoformat(o['updated_at'])
+            if isinstance(o.get('data_ordem'), str):
+                o['data_ordem'] = date.fromisoformat(o['data_ordem'])
+        
+        return ordens
+    
+    # ==================== ORÇAMENTOS ====================
+    @router.post("/orcamentos", response_model=Orcamento, status_code=201)
+    async def criar_orcamento(orcamento: OrcamentoCreate):
+        orcamento_obj = Orcamento(**orcamento.model_dump())
+        
+        # Gerar número automático
+        count = await db.orcamentos.count_documents({})
+        orcamento_obj.numero_orcamento = f"ORC-{str(count + 1).zfill(6)}"
+        
+        doc = orcamento_obj.model_dump()
+        doc['created_at'] = doc['created_at'].isoformat()
+        doc['updated_at'] = doc['updated_at'].isoformat()
+        if 'validade' in doc and doc['validade'] and hasattr(doc['validade'], 'isoformat'):
+            doc['validade'] = doc['validade'].isoformat()
+        
+        await db.orcamentos.insert_one(doc)
+        return orcamento_obj
+    
+    @router.get("/orcamentos", response_model=List[Orcamento])
+    async def listar_orcamentos(status: str = None):
+        query = {}
+        if status:
+            query['status'] = status
+        
+        orcamentos = await db.orcamentos.find(query, {"_id": 0}).to_list(1000)
+        
+        for o in orcamentos:
+            if isinstance(o.get('created_at'), str):
+                o['created_at'] = datetime.fromisoformat(o['created_at'])
+            if isinstance(o.get('updated_at'), str):
+                o['updated_at'] = datetime.fromisoformat(o['updated_at'])
+            if o.get('validade') and isinstance(o['validade'], str):
+                o['validade'] = date.fromisoformat(o['validade'])
+        
+        return orcamentos
+    
     return router
