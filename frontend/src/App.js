@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import MainLayout from '@/components/layout/MainLayout';
 import Dashboard from '@/pages/Dashboard';
 import Clientes from '@/pages/Clientes';
+import Fornecedores from '@/pages/Fornecedores';
+import Equipamentos from '@/pages/Equipamentos';
 import '@/App.css';
 
 // Placeholder component for pages under construction
