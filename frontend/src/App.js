@@ -69,7 +69,7 @@ function App() {
             <Route path="/compras/ordens" element={<PlaceholderPage title="Ordens de Compra" description="Gestão de ordens de compra com numeração automática" />} />
             <Route path="/compras/orcamentos" element={<PlaceholderPage title="Orçamentos" description="Orçamentos: Pendente/Aprovado/Negado" />} />
             <Route path="/compras/historico" element={<PlaceholderPage title="Histórico" description="Histórico de compras com relatório PDF" />} />
-            <Route path="/compras/fornecedores" element={<Clientes />} />
+            <Route path="/compras/fornecedores" element={<Fornecedores />} />
             <Route path="/compras/servicos-terceirizados" element={<PlaceholderPage title="Serviços Terceirizados" description="Controle de serviços terceirizados" />} />
             <Route path="/compras/relatorios" element={<PlaceholderPage title="Relatórios Compras" description="Relatórios do setor de compras" />} />
             
