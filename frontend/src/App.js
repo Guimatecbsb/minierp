@@ -56,7 +56,7 @@ function App() {
             <Route path="/serralheria/equipamentos" element={<PlaceholderPage title="Serralheria - Equipamentos" description="Equipamentos disponíveis/indisponíveis" />} />
             
             {/* Estoque */}
-            <Route path="/estoque/cadastro-equipamentos" element={<PlaceholderPage title="Cadastro de Equipamentos" description="Cadastro e gestão de equipamentos" />} />
+            <Route path="/estoque/cadastro-equipamentos" element={<Equipamentos />} />
             <Route path="/estoque/tomados-emprestado" element={<PlaceholderPage title="Tomados Emprestado" description="Controle de itens tomados emprestado" />} />
             <Route path="/estoque/emprestados-terceiro" element={<PlaceholderPage title="Emprestados a Terceiro" description="Controle de itens emprestados" />} />
             <Route path="/estoque/consumiveis" element={<PlaceholderPage title="Consumíveis" description="Gestão de materiais consumíveis" />} />
