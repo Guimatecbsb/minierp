@@ -33,7 +33,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/agenda-dia" element={<PlaceholderPage title="Agenda do Dia" description="Visualização completa da agenda diária" />} />
             <Route path="/alertas" element={<PlaceholderPage title="Alertas" description="Central de alertas e notificações" />} />
-            <Route path="/eventos" element={<PlaceholderPage title="Eventos do Dia" description="Gestão de eventos em andamento, programados e finalizados" />} />
+            <Route path="/eventos" element={<Eventos />} />
             
             {/* Operacional */}
             <Route path="/operacional/cadastro-atividades" element={<PlaceholderPage title="Cadastro de Atividades" description="Gerenciamento de atividades operacionais" />} />
