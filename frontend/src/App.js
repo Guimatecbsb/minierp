@@ -28,9 +28,16 @@ const PlaceholderPage = ({ title, description }) => (
 function App() {
   return (
     <div className="App dark">
-      <BrowserRouter>
-        <MainLayout>
+      <AuthProvider>
+        <BrowserRouter>
           <Routes>
+            {/* Login (sem layout) */}
+            <Route path="/login" element={<Login />} />
+            
+            {/* Rotas protegidas (com layout) */}
+            <Route path="/*" element={
+              <MainLayout>
+                <Routes>
             {/* Principal */}
             <Route path="/" element={<Navigate to="/dashboard" replace />} />
             <Route path="/dashboard" element={<Dashboard />} />
