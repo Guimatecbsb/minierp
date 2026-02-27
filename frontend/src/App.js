@@ -12,6 +12,10 @@ import Condutores from '@/pages/Condutores';
 import Abastecimento from '@/pages/Abastecimento';
 import Eventos from '@/pages/Eventos';
 import BackupRestore from '@/pages/BackupRestore';
+import OrdensDeCompra from '@/pages/Compras/OrdensDeCompra';
+import Orcamentos from '@/pages/Compras/Orcamentos';
+import Emprestimos from '@/pages/Estoque/Emprestimos';
+import EPIs from '@/pages/Estoque/EPIs';
 import '@/App.css';
 
 // Placeholder component for pages under construction
