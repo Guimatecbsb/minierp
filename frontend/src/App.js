@@ -5,6 +5,9 @@ import Dashboard from '@/pages/Dashboard';
 import Clientes from '@/pages/Clientes';
 import Fornecedores from '@/pages/Fornecedores';
 import Equipamentos from '@/pages/Equipamentos';
+import Veiculos from '@/pages/Veiculos';
+import Condutores from '@/pages/Condutores';
+import Abastecimento from '@/pages/Abastecimento';
 import '@/App.css';
 
 // Placeholder component for pages under construction
