@@ -218,3 +218,64 @@ export const backupService = {
     return response.data;
   },
 };
+
+export const comprasService = {
+  // Ordens de Compra
+  criarOrdem: async (data) => {
+    const response = await api.post('/compras/ordens', data);
+    return response.data;
+  },
+
+  listarOrdens: async () => {
+    const response = await api.get('/compras/ordens');
+    return response.data;
+  },
+
+  // Orçamentos
+  criarOrcamento: async (data) => {
+    const response = await api.post('/compras/orcamentos', data);
+    return response.data;
+  },
+
+  listarOrcamentos: async (status = null) => {
+    const url = status ? `/compras/orcamentos?status=${status}` : '/compras/orcamentos';
+    const response = await api.get(url);
+    return response.data;
+  },
+};
+
+export const estoqueService = {
+  // Empréstimos
+  criarEmprestimo: async (data) => {
+    const response = await api.post('/estoque/emprestimos', data);
+    return response.data;
+  },
+
+  listarEmprestimos: async (tipo = null, status = null) => {
+    let url = '/estoque/emprestimos';
+    const params = [];
+    if (tipo) params.push(`tipo=${tipo}`);
+    if (status) params.push(`status=${status}`);
+    if (params.length > 0) url += `?${params.join('&')}`;
+    
+    const response = await api.get(url);
+    return response.data;
+  },
+
+  // EPIs
+  criarEPI: async (data) => {
+    const response = await api.post('/estoque/epis', data);
+    return response.data;
+  },
+
+  listarEPIs: async (status = null) => {
+    const url = status ? `/estoque/epis?status=${status}` : '/estoque/epis';
+    const response = await api.get(url);
+    return response.data;
+  },
+
+  alertasEPIs: async () => {
+    const response = await api.get('/estoque/epis/alertas');
+    return response.data;
+  },
+};
