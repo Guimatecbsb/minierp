@@ -154,4 +154,18 @@ def get_auth_router(db: AsyncIOMotorDatabase) -> APIRouter:
             "aviso": "ALTERE A SENHA IMEDIATAMENTE!"
         }
     
+    @router.get("/users", response_model=list[UserResponse])
+    async def listar_usuarios():
+        """Lista todos os usuários"""
+        usuarios = await db.usuarios.find({}, {"_id": 0, "senha_hash": 0}).to_list(1000)
+        return usuarios
+    
+    @router.delete("/users/{user_id}")
+    async def deletar_usuario(user_id: str):
+        """Deleta um usuário"""
+        result = await db.usuarios.delete_one({"id": user_id})
+        if result.deleted_count == 0:
+            raise HTTPException(status_code=404, detail="Usuário não encontrado")
+        return {"message": "Usuário deletado com sucesso"}
+    
     return router
