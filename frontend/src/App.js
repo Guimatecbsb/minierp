@@ -16,6 +16,9 @@ import OrdensDeCompra from '@/pages/Compras/OrdensDeCompra';
 import Orcamentos from '@/pages/Compras/Orcamentos';
 import Emprestimos from '@/pages/Estoque/Emprestimos';
 import EPIs from '@/pages/Estoque/EPIs';
+import Checklists from '@/pages/Operacional/Checklists';
+import MovimentacoesSerralheria from '@/pages/Serralheria/Movimentacoes';
+import EstoqueSerralheria from '@/pages/Serralheria/Estoque';
 import '@/App.css';
 
 // Placeholder component for pages under construction
@@ -54,7 +57,7 @@ function App() {
             <Route path="/operacional/camarins" element={<PlaceholderPage title="Camarins" description="Controle de camarins" />} />
             <Route path="/operacional/ar-condicionado" element={<PlaceholderPage title="Ar Condicionado" description="Gestão de equipamentos de ar condicionado" />} />
             <Route path="/operacional/eletrica" element={<PlaceholderPage title="Elétrica" description="Controle de instalações elétricas" />} />
-            <Route path="/operacional/checklists" element={<PlaceholderPage title="Checklists" description="Checklists operacionais" />} />
+            <Route path="/operacional/checklists" element={<Checklists />} />
             <Route path="/operacional/agenda" element={<PlaceholderPage title="Agenda" description="Agenda semanal e mensal" />} />
             <Route path="/operacional/relatorios" element={<PlaceholderPage title="Relatórios Operacionais" description="Relatórios do setor operacional" />} />
             
@@ -68,9 +71,9 @@ function App() {
             <Route path="/logistica/relatorios" element={<PlaceholderPage title="Relatórios Logística" description="Relatórios em PDF da logística" />} />
             
             {/* Serralheria */}
-            <Route path="/serralheria/entradas" element={<PlaceholderPage title="Serralheria - Entradas" description="Registro de entradas na serralheria" />} />
-            <Route path="/serralheria/saidas" element={<PlaceholderPage title="Serralheria - Saídas" description="Registro de saídas da serralheria" />} />
-            <Route path="/serralheria/estoque" element={<PlaceholderPage title="Serralheria - Estoque" description="Controle de estoque da serralheria" />} />
+            <Route path="/serralheria/entradas" element={<MovimentacoesSerralheria />} />
+            <Route path="/serralheria/saidas" element={<MovimentacoesSerralheria />} />
+            <Route path="/serralheria/estoque" element={<EstoqueSerralheria />} />
             <Route path="/serralheria/equipamentos" element={<PlaceholderPage title="Serralheria - Equipamentos" description="Equipamentos disponíveis/indisponíveis" />} />
             
             {/* Estoque */}
