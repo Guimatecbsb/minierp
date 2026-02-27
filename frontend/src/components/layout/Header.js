@@ -1,7 +1,17 @@
 import React from 'react';
 import { Menu, Bell, User, LogOut } from 'lucide-react';
+import { useAuth } from '@/context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const Header = ({ toggleSidebar }) => {
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+  };
+
   return (
     <header className="bg-[#161B22] border-b border-[#30363D] px-6 py-4 flex items-center justify-between">
       {/* Left Side */}
