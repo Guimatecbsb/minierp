@@ -54,14 +54,14 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
         { path: '/logistica/veiculos-pesados', label: 'Veículos Pesados', icon: Truck },
         { path: '/logistica/veiculos-leves', label: 'Veículos Leves', icon: Truck },
         { path: '/logistica/manutencao-preventiva', label: 'Manutenção Preventiva', icon: Wrench },
-        { path: '/logistica/manutencao-corretiva', label: 'Manutenção Corretiva', icon: Tool },
+        { path: '/logistica/manutencao-corretiva', label: 'Manutenção Corretiva', icon: Wrench },
         { path: '/logistica/abastecimento', label: 'Abastecimento', icon: Activity },
         { path: '/logistica/condutores', label: 'Cadastro de Condutores', icon: Users },
         { path: '/logistica/relatorios', label: 'Relatórios PDF', icon: FileText },
         { path: '/serralheria/entradas', label: 'Serralheria - Entradas', icon: Archive },
         { path: '/serralheria/saidas', label: 'Serralheria - Saídas', icon: Package },
         { path: '/serralheria/estoque', label: 'Serralheria - Estoque', icon: Database },
-        { path: '/serralheria/equipamentos', label: 'Serralheria - Equipamentos', icon: Tool }
+        { path: '/serralheria/equipamentos', label: 'Serralheria - Equipamentos', icon: Wrench }
       ]
     },
     {
