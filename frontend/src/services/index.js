@@ -399,3 +399,15 @@ export const serralheriaService = {
     return response.data;
   },
 };
+
+export const usuariosService = {
+  listarUsuarios: async () => {
+    const response = await api.get('/auth/users');
+    return response.data;
+  },
+
+  deletarUsuario: async (userId) => {
+    const response = await api.delete(`/auth/users/${userId}`);
+    return response.data;
+  },
+};
