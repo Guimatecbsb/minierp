@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Plus, Search, Edit, Trash2, User } from 'lucide-react';
-import { clientesService } from '@/services';
+import { Plus, Search, Edit, Trash2, User, FileText } from 'lucide-react';
+import { clientesService, relatoriosService } from '@/services';
 import Modal from '@/components/ui/Modal';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
