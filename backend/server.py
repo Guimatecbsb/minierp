@@ -51,6 +51,8 @@ async def health_check():
 # Include module routers
 api_router.include_router(get_clientes_router(db))
 api_router.include_router(get_compras_router(db))
+api_router.include_router(get_equipamentos_router(db))
+api_router.include_router(get_veiculos_router(db))
 
 # Include the main API router in the app
 app.include_router(api_router)
