@@ -23,9 +23,10 @@ class EstoqueItem(EstoqueItemBase):
 
 # Empréstimo
 class EmprestimoBase(BaseModel):
-    equipamento_id: str
+    item_id: str  # ID do equipamento
     tipo: str  # tomado_emprestado, emprestado_terceiro
-    empresa_pessoa: str  # Nome da empresa/pessoa
+    responsavel: str  # Nome do responsável
+    destino: str  # Destino/origem do empréstimo
     quantidade: int = Field(gt=0)
     data_emprestimo: date
     data_prevista_devolucao: date
@@ -47,11 +48,11 @@ class Emprestimo(EmprestimoBase):
 class EPIBase(BaseModel):
     tipo: str  # Capacete, Luvas, Botas, etc
     marca: str
-    modelo: str
     tamanho: Optional[str] = None
+    ca: Optional[str] = None  # Certificado de Aprovação
     quantidade_estoque: int = Field(ge=0)
     quantidade_minima: int = Field(default=5)
-    status: str = Field(default="disponível")  # disponível, indisponível
+    status: str = Field(default="disponivel")  # disponivel, em_uso, indisponivel
     validade: Optional[date] = None
     observacoes: Optional[str] = None
 
