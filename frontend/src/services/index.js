@@ -279,3 +279,123 @@ export const estoqueService = {
     return response.data;
   },
 };
+
+export const operacionalService = {
+  // Atividades
+  criarAtividade: async (data) => {
+    const response = await api.post('/operacional/atividades', data);
+    return response.data;
+  },
+
+  listarAtividades: async (tipo = null) => {
+    const url = tipo ? `/operacional/atividades?tipo=${tipo}` : '/operacional/atividades';
+    const response = await api.get(url);
+    return response.data;
+  },
+
+  // Camarins
+  criarCamarin: async (data) => {
+    const response = await api.post('/operacional/camarins', data);
+    return response.data;
+  },
+
+  listarCamarins: async (status = null) => {
+    const url = status ? `/operacional/camarins?status=${status}` : '/operacional/camarins';
+    const response = await api.get(url);
+    return response.data;
+  },
+
+  // Ar Condicionado
+  criarArCondicionado: async (data) => {
+    const response = await api.post('/operacional/ar-condicionado', data);
+    return response.data;
+  },
+
+  listarArCondicionado: async (status = null) => {
+    const url = status ? `/operacional/ar-condicionado?status=${status}` : '/operacional/ar-condicionado';
+    const response = await api.get(url);
+    return response.data;
+  },
+
+  // Elétrica
+  criarEletrica: async (data) => {
+    const response = await api.post('/operacional/eletrica', data);
+    return response.data;
+  },
+
+  listarEletrica: async (tipo = null, status = null) => {
+    let url = '/operacional/eletrica';
+    const params = [];
+    if (tipo) params.push(`tipo=${tipo}`);
+    if (status) params.push(`status=${status}`);
+    if (params.length > 0) url += `?${params.join('&')}`;
+    
+    const response = await api.get(url);
+    return response.data;
+  },
+
+  // Checklists
+  criarChecklist: async (data) => {
+    const response = await api.post('/operacional/checklists', data);
+    return response.data;
+  },
+
+  listarChecklists: async (tipo = null, status = null) => {
+    let url = '/operacional/checklists';
+    const params = [];
+    if (tipo) params.push(`tipo=${tipo}`);
+    if (status) params.push(`status=${status}`);
+    if (params.length > 0) url += `?${params.join('&')}`;
+    
+    const response = await api.get(url);
+    return response.data;
+  },
+};
+
+export const serralheriaService = {
+  // Movimentações (Entradas/Saídas)
+  criarMovimentacao: async (data) => {
+    const response = await api.post('/serralheria/movimentacoes', data);
+    return response.data;
+  },
+
+  listarMovimentacoes: async (tipo = null) => {
+    const url = tipo ? `/serralheria/movimentacoes?tipo=${tipo}` : '/serralheria/movimentacoes';
+    const response = await api.get(url);
+    return response.data;
+  },
+
+  // Estoque
+  criarItemEstoque: async (data) => {
+    const response = await api.post('/serralheria/estoque', data);
+    return response.data;
+  },
+
+  listarEstoque: async (categoria = null) => {
+    const url = categoria ? `/serralheria/estoque?categoria=${categoria}` : '/serralheria/estoque';
+    const response = await api.get(url);
+    return response.data;
+  },
+
+  alertasEstoque: async () => {
+    const response = await api.get('/serralheria/estoque/alertas');
+    return response.data;
+  },
+
+  // Equipamentos
+  criarEquipamento: async (data) => {
+    const response = await api.post('/serralheria/equipamentos', data);
+    return response.data;
+  },
+
+  listarEquipamentos: async (status = null, tipo = null) => {
+    let url = '/serralheria/equipamentos';
+    const params = [];
+    if (status) params.push(`status=${status}`);
+    if (tipo) params.push(`tipo=${tipo}`);
+    if (params.length > 0) url += `?${params.join('&')}`;
+    
+    const response = await api.get(url);
+    return response.data;
+  },
+};
