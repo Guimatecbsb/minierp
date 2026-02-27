@@ -82,7 +82,7 @@ function App() {
             <Route path="/config/usuarios" element={<PlaceholderPage title="Usuários" description="Criar, editar, excluir e gerenciar permissões" />} />
             <Route path="/config/permissoes" element={<PlaceholderPage title="Permissões" description="Controle de permissões (somente Admin)" />} />
             <Route path="/config/empresa" element={<PlaceholderPage title="Empresa" description="Configurações da empresa e upload de logo" />} />
-            <Route path="/config/backup" element={<PlaceholderPage title="Backup e Restauração" description="Backup completo e restore com 1 clique" />} />
+            <Route path="/config/backup" element={<BackupRestore />} />
             <Route path="/config/status-sistema" element={<PlaceholderPage title="Status do Sistema" description="Monitoramento do status do sistema" />} />
             <Route path="/config/usuarios-online" element={<PlaceholderPage title="Usuários Online" description="Visualização de usuários conectados" />} />
           </Routes>
