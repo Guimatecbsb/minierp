@@ -20,6 +20,8 @@ from routes.relatorios import get_relatorios_router
 from routes.backup import get_backup_router
 from routes.auth import get_auth_router
 from routes.estoque import get_estoque_router
+from routes.operacional import get_operacional_router
+from routes.serralheria import get_serralheria_router
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
@@ -62,6 +64,8 @@ api_router.include_router(get_equipamentos_router(db))
 api_router.include_router(get_veiculos_router(db))
 api_router.include_router(get_eventos_router(db))
 api_router.include_router(get_estoque_router(db))
+api_router.include_router(get_operacional_router(db))
+api_router.include_router(get_serralheria_router(db))
 api_router.include_router(get_dashboard_router(db))
 api_router.include_router(get_relatorios_router(db))
 api_router.include_router(get_backup_router(db))
