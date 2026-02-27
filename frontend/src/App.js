@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import MainLayout from '@/components/layout/MainLayout';
 import Dashboard from '@/pages/Dashboard';
+import Clientes from '@/pages/Clientes';
 import '@/App.css';
 
 // Placeholder component for pages under construction
@@ -10,7 +11,7 @@ const PlaceholderPage = ({ title, description }) => (
     <h1 className="text-2xl font-bold text-white mb-2">{title}</h1>
     <p className="text-gray-400">{description}</p>
     <div className="mt-6 inline-block px-4 py-2 bg-blue-500/20 text-blue-400 rounded-lg">
-      Módulo em construção - FASE 2+
+      Módulo em construção - FASE 3+
     </div>
   </div>
 );
