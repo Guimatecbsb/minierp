@@ -8,6 +8,7 @@ import Equipamentos from '@/pages/Equipamentos';
 import Veiculos from '@/pages/Veiculos';
 import Condutores from '@/pages/Condutores';
 import Abastecimento from '@/pages/Abastecimento';
+import Eventos from '@/pages/Eventos';
 import '@/App.css';
 
 // Placeholder component for pages under construction
