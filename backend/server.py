@@ -18,6 +18,7 @@ from routes.eventos import get_eventos_router
 from routes.dashboard import get_dashboard_router
 from routes.relatorios import get_relatorios_router
 from routes.backup import get_backup_router
+from routes.auth import get_auth_router
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
