@@ -5,9 +5,7 @@ import uuid
 
 class OrdemCompraBase(BaseModel):
     fornecedor_id: str
-    data_ordem: date
     itens: List[dict]  # [{"descricao": "", "quantidade": 0, "valor_unitario": 0}]
-    valor_total: float = Field(ge=0)
     status: str = Field(default="pendente")  # pendente, aprovado, recebido, cancelado
     observacoes: Optional[str] = None
 
@@ -19,6 +17,8 @@ class OrdemCompra(OrdemCompraBase):
     
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     numero_ordem: str = Field(default="")  # Numeração automática
+    data_ordem: date = Field(default_factory=date.today)
+    valor_total: float = Field(default=0.0, ge=0)
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     updated_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
@@ -27,7 +27,6 @@ class OrcamentoBase(BaseModel):
     cliente_id: Optional[str] = None
     fornecedor_id: Optional[str] = None
     descricao: str
-    itens: List[dict]  # [{"descricao": "", "quantidade": 0, "valor_unitario": 0}]
     valor_total: float = Field(ge=0)
     status: str = Field(default="pendente")  # pendente, aprovado, negado
     validade: Optional[date] = None
