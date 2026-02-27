@@ -14,6 +14,8 @@ from routes.clientes import get_clientes_router
 from routes.compras import get_compras_router
 from routes.equipamentos import get_equipamentos_router
 from routes.veiculos import get_veiculos_router
+from routes.eventos import get_eventos_router
+from routes.dashboard import get_dashboard_router
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
