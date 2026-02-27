@@ -2,8 +2,9 @@ from fastapi import APIRouter, HTTPException
 from typing import List
 from models.clientes import Cliente, ClienteCreate, ClienteUpdate
 from models.fornecedores import Fornecedor, FornecedorCreate, FornecedorUpdate
+from models.compras import OrdemCompra, OrdemCompraCreate, Orcamento, OrcamentoCreate
 from motor.motor_asyncio import AsyncIOMotorDatabase
-from datetime import datetime, timezone
+from datetime import datetime, timezone, date
 
 def get_compras_router(db: AsyncIOMotorDatabase) -> APIRouter:
     router = APIRouter(prefix="/compras", tags=["Compras"])
