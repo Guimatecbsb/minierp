@@ -90,6 +90,12 @@ def get_compras_router(db: AsyncIOMotorDatabase) -> APIRouter:
         count = await db.ordens_compra.count_documents({})
         ordem_obj.numero_ordem = f"ORD-{str(count + 1).zfill(6)}"
         
+        # Calcular valor total automaticamente
+        ordem_obj.valor_total = sum(
+            item.get('quantidade', 0) * item.get('valor_unitario', 0) 
+            for item in ordem_obj.itens
+        )
+        
         doc = ordem_obj.model_dump()
         doc['created_at'] = doc['created_at'].isoformat()
         doc['updated_at'] = doc['updated_at'].isoformat()
